@@ -1,0 +1,138 @@
+    body {
+      height: 100vh;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(45deg,rgba(67,79,240,1) 0%, rgba(148,187,233,1) 20%, rgba(148,233,228,1) 40%, rgba(148,233,176,1) 60%, rgba(217,233,148,1) 80%, rgba(233,148,148,1) 100%);;
+      background-size: 400% 400%;
+      animation: gradientAnimation 20s ease infinite;
+    }
+
+    @keyframes gradientAnimation {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    .container {
+      display: flex;
+      align-items: center;
+      position: relative;
+    }
+    
+      .profile-picture {
+    position: absolute;
+    top: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background-image: url('profile_pic.png'); /* Replace with the actual image path */
+    background-size: cover;
+    background-position: center;
+  }
+  
+    canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+
+    .box {
+      width: 300px;
+      height: 500px;
+      background-color: rgba(0, 0, 0, 0.5); /* Darker background */
+      transition: background-color 0.6s ease; /* Transition effect for box background color */
+      border-radius: 20px; /* Rounded corners */
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      font-family: "Baskerville", serif; /* Font family for heading */
+      color: white; /* Text color */
+      user-select: none; /* Make the text unselectable */
+
+    }
+
+    .box:hover {
+      background-color: rgba(0, 0, 0, 0.9); /* Darkened background on hover */
+
+    }
+
+    .box:hover h1 {
+      transform: scale(1.1); /* Zoom-in effect on text only */
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 36px;
+      margin-bottom: 30px;
+      transition: transform 0.4s ease; /* Transition effect for zoom-in effect */
+    }
+
+    h2 {
+      text-align: center;
+      font-size: 24px;
+      font-family: "Baskerville", serif; /* Font family for subheading */
+    }
+
+    .social-bar {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start; /* Adjusted alignment */
+      position: absolute;
+      top: 55%;
+      right: 310px; /* Adjusted right positioning */
+      transform: translateY(-70%);
+      margin-top: 20px;
+      height: 200px; /* Adjusted height */
+    }
+
+    .social-icon {
+      display: block; /* Changed to block to create a vertical list */
+      width: 90px; /* Fixed width for all buttons */
+      margin-bottom: 10px;
+      color: white;
+      font-size: 18px;
+      transition: transform 0.3s ease, font-weight 0.3s ease, background-color 0.3s ease; /* Transition effects for magnification, font weight, and background color */
+      font-family: "Baskerville", serif; /* Font family for social icon */
+      text-decoration: none; /* Remove underline */
+      border-radius: 20px; /* Rounded corners for button */
+      padding: 10px 10px;
+      text-align: center;
+      font-weight: normal; /* Set initial font weight */
+      background-color: rgba(0, 0, 0, 1); /* Same background color as the box */
+    }
+
+    .social-icon:hover,
+    .button:hover {
+      transform: scale(1.2); /* Magnification effect on hover */
+      background: linear-gradient(45deg, #2a2a72, #009ffd); /* Gradient effect on hover */
+      background-size: 200% 200%;
+      background-position: 0% 80%;
+      animation: gradientAnimation 15s infinite;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 10px 20px;
+      font-size: 18px;
+      background-color: rgba(0, 0, 0, 0.7);
+      color: white;
+      border: none; /* Remove border */
+      border-radius: 20px; /* Rounded corners for button */
+      transition: background-color 0.3s ease; /* Transition effect for background color */
+      font-family: "Baskerville", serif;  /* Font family for button text */
+      text-decoration: none; /* Remove underline */
+    }
