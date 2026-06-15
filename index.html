@@ -1,386 +1,930 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Davis Thomas Daniel</title>
-<style>
-*{margin:0;padding:0;box-sizing:border-box;}
-:root{
-  --blue:#44aaff;
-  --blue-dim:rgba(68,170,255,0.1);
-  --blue-mid:rgba(68,170,255,0.35);
-  --bg:#0a0a0f;
-  --bg2:#111118;
-  --bg3:#16161f;
-  --text:#e8e8f0;
-  --muted:#afafc0;
-  --border:rgba(255,255,255,0.07);
-}
-html{scroll-behavior:smooth;}
-body{background:var(--bg);color:var(--text);font-family:'Georgia',serif;font-size:16px;line-height:1.7;overflow-x:hidden;}
-canvas#particles{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0;}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Davis Thomas Daniel</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:1.2rem 3rem;background:rgba(10,10,15,0.88);backdrop-filter:blur(12px);border-bottom:0.5px solid var(--border);}
-.nav-logo {
-  font-size: 16px;
-  letter-spacing: 0.12em;
-  color: var(--muted);
-  font-family: 'Courier New', monospace;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-.nav-logo span{color:var(--blue);}
-.nav-links{list-style:none;display:flex;gap:2rem;}
-.nav-links a{color:var(--muted);text-decoration:none;font-size:16px;letter-spacing:0.08em;font-family:'Courier New',monospace;text-transform:uppercase;transition:color 0.2s;}
-.nav-links a:hover{color:var(--blue);}
-.nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;}
-.nav-hamburger span{display:block;width:22px;height:1px;background:var(--muted);}
+    :root {
+      --blue: #44aaff;
+      --blue-dim: rgba(68, 170, 255, 0.1);
+      --blue-mid: rgba(68, 170, 255, 0.35);
+      --bg: #0a0a0f;
+      --bg2: #111118;
+      --bg3: #16161f;
+      --text: #e8e8f0;
+      --muted: #afafc0;
+      --border: rgba(255, 255, 255, 0.07);
+    }
 
-section{position:relative;z-index:1;}
+    html {
+      scroll-behavior: smooth;
+    }
 
-#hero{
-  min-height:100vh;
-  display:flex;flex-direction:column;justify-content:center;align-items:flex-start;
-  padding-top:80px;
-  padding-left:clamp(1.5rem,20vw,280px);
-  padding-right:clamp(1.5rem,20vw,280px);
-}
-.hero-tag{font-family:'Courier New',monospace;font-size:16px;letter-spacing:0.2em;color:var(--blue);text-transform:uppercase;margin-bottom:1.5rem;display:flex;align-items:center;gap:10px;}
-.hero-tag::before{content:'';display:inline-block;width:32px;height:1px;background:var(--blue);}
-.hero-tag::after{content:'';display:inline-block;width:32px;height:1px;background:var(--blue);}
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Georgia', serif;
+      font-size: 16px;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
 
-.hero-photo-circle {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  border: 1px solid var(--blue-mid);
-  overflow: hidden;
-  background: var(--bg3);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-left: 0.5rem;
-  flex-shrink: 0;
-}
+    canvas#particles {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+    }
 
-.hero-photo-circle img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 3rem;
+      background: rgba(10, 10, 15, 0.88);
+      backdrop-filter: blur(12px);
+      border-bottom: 0.5px solid var(--border);
+    }
+
+    .nav-logo {
+      font-size: 16px;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+      font-family: 'Courier New', monospace;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .nav-logo span {
+      color: var(--blue);
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 16px;
+      letter-spacing: 0.08em;
+      font-family: 'Courier New', monospace;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--blue);
+    }
+
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+    }
+
+    .nav-hamburger span {
+      display: block;
+      width: 22px;
+      height: 1px;
+      background: var(--muted);
+    }
+
+    section {
+      position: relative;
+      z-index: 1;
+    }
+
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      padding-top: 80px;
+      padding-left: clamp(1.5rem, 20vw, 280px);
+      padding-right: clamp(1.5rem, 20vw, 280px);
+    }
+
+    .hero-tag {
+      font-family: 'Courier New', monospace;
+      font-size: 16px;
+      letter-spacing: 0.2em;
+      color: var(--blue);
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .hero-tag::before {
+      content: '';
+      display: inline-block;
+      width: 32px;
+      height: 1px;
+      background: var(--blue);
+    }
+
+    .hero-tag::after {
+      content: '';
+      display: inline-block;
+      width: 32px;
+      height: 1px;
+      background: var(--blue);
+    }
+
+    .hero-photo-circle {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      border: 1px solid var(--blue-mid);
+      overflow: hidden;
+      background: var(--bg3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-left: 0.5rem;
+      flex-shrink: 0;
+    }
+
+    .hero-photo-circle img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
 
 
-h1.hero-name{font-size:clamp(2.4rem,6vw,5.5rem);font-weight:normal;line-height:1.1;letter-spacing:-0.02em;color:#fff;margin-bottom:1rem;}
-h1.hero-name em{font-style:normal;color:var(--blue);}
-.hero-subtitle{font-family:'Courier New',monospace;font-size:13px;color:var(--muted);letter-spacing:0.06em;margin-bottom:1.5rem;max-width:520px;}
-.hero-desc{font-size:17px;color:#b0b0c8;max-width:540px;margin-bottom:2.5rem;line-height:1.8;}
-.hero-actions{display:flex;gap:1rem;align-items:center;flex-wrap:wrap;margin-bottom:1.75rem;}
-.btn-primary{display:inline-block;padding:12px 28px;background:var(--blue);color:#000;text-decoration:none;font-family:'Courier New',monospace;font-size:16px;letter-spacing:0.12em;text-transform:uppercase;font-weight:bold;border-radius:3px;transition:opacity 0.2s,transform 0.2s;}
-.btn-primary:hover{opacity:0.85;transform:translateY(-1px);}
-.btn-ghost{display:inline-block;padding:12px 28px;border:0.5px solid var(--blue-mid);color:var(--blue);text-decoration:none;font-family:'Courier New',monospace;font-size:16px;letter-spacing:0.12em;text-transform:uppercase;border-radius:3px;transition:background 0.2s,transform 0.2s;}
-.btn-ghost:hover{background:var(--blue-dim);transform:translateY(-1px);}
-.social-links{display:flex;gap:0.75rem;flex-wrap:wrap;}
-.social-link{display:inline-flex;align-items:center;gap:5px;color:var(--muted);text-decoration:none;font-family:'Courier New',monospace;font-size:15px;letter-spacing:0.08em;text-transform:uppercase;padding:7px 13px;border:0.5px solid var(--border);border-radius:3px;transition:color 0.2s,border-color 0.2s;}
-.social-link:hover{color:var(--blue);border-color:var(--blue-mid);}
-.hero-scroll{position:absolute;bottom:2.5rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;color:var(--muted);font-family:'Courier New',monospace;font-size:16px;letter-spacing:0.15em;text-transform:uppercase;animation:bounce 1s infinite;}
-.hero-scroll::after{content:'';width:1px;height:40px;background:linear-gradient(to bottom,var(--muted),transparent);}
-@keyframes bounce{0%,100%{transform:translateX(-50%) translateY(0);}50%{transform:translateX(-50%) translateY(6px);}}
+    h1.hero-name {
+      font-size: clamp(2.4rem, 6vw, 5.5rem);
+      font-weight: normal;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      color: #fff;
+      margin-bottom: 1rem;
+    }
 
-.section-inner{max-width:960px;margin:0 auto;padding:6rem 3rem;}
-.section-label{font-family:'Courier New',monospace;font-size:16px;letter-spacing:0.22em;color:var(--blue);text-transform:uppercase;margin-bottom:0.75rem;display:flex;align-items:center;gap:10px;}
-.section-label::before{content:'';display:inline-block;width:24px;height:1px;background:var(--blue);}
-h2.section-title{font-size:clamp(1.6rem,3.5vw,2.8rem);font-weight:normal;color:#fff;letter-spacing:-0.01em;margin-bottom:3rem;line-height:1.2;}
+    h1.hero-name em {
+      font-style: normal;
+      color: var(--blue);
+    }
 
-#about{background:var(--bg2);}
-.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;}
-.about-text{font-size:15px;color:#b0b0c8;line-height:1.9;}
-.about-text p{margin-bottom:1.2rem;}
-.stats-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;}
-.stat-card{padding:1.5rem;background:var(--bg3);border:0.5px solid var(--border);border-radius:4px;border-left:2px solid var(--blue);}
-.stat-card:hover{border-color:var(--blue-mid);transform:translateY(-3px);}
-.stat-num{font-size:2.2rem;font-weight:normal;color:var(--blue);font-family:'Courier New',monospace;line-height:1;margin-bottom:0.4rem;}
-.stat-label{font-size:11px;color:var(--muted);font-family:'Courier New',monospace;letter-spacing:0.06em;line-height:1.4;}
+    .hero-subtitle {
+      font-family: 'Courier New', monospace;
+      font-size: 13px;
+      color: var(--muted);
+      letter-spacing: 0.06em;
+      margin-bottom: 1.5rem;
+      max-width: 520px;
+    }
 
-#research{background:var(--bg);}
-.research-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;}
-.research-card{padding:2rem;background:var(--bg3);border:0.5px solid var(--border);border-radius:4px;transition:border-color 0.25s,transform 0.25s;cursor:default;}
-.research-card:hover{border-color:var(--blue-mid);transform:translateY(-3px);}
-.card-icon{width:36px;height:36px;background:var(--blue-dim);border-radius:3px;display:flex;align-items:center;justify-content:center;margin-bottom:1.25rem;font-size:16px;color:var(--blue);font-family:'Courier New',monospace;font-weight:bold;}
-.card-title{font-size:16px;color:#fff;margin-bottom:0.75rem;font-weight:normal;}
-.card-body{font-size:14px;color:var(--muted);line-height:1.7;font-family:'Courier New',monospace;}
-.card-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:1.25rem;}
-.tag{font-family:'Courier New',monospace;font-size:10px;letter-spacing:0.08em;color:var(--blue);background:var(--blue-dim);padding:3px 9px;border-radius:2px;}
+    .hero-desc {
+      font-size: 17px;
+      color: #b0b0c8;
+      max-width: 540px;
+      margin-bottom: 2.5rem;
+      line-height: 1.8;
+    }
 
-#publications{background:var(--bg2);}
-.pub-list{list-style:none;}
-.pub-item{display:grid;grid-template-columns:40px 1fr;gap:1.5rem;padding:1.75rem 0;border-bottom:0.5px solid var(--border);}
-.pub-item:first-child{border-top:0.5px solid var(--border);}
-.pub-num{font-family:'Courier New',monospace;font-size:11px;color:var(--blue);padding-top:4px;text-align:right;}
-.pub-title{font-size:14px;color:#dde;margin-bottom:0.35rem;line-height:1.5;}
-.pub-meta{font-size:11px;color:var(--muted);font-family:'Courier New',monospace;display:flex;gap:1rem;flex-wrap:wrap;}
-.pub-meta .journal{color:var(--blue);}
-.pub-footer{margin-top:2.5rem;display:flex;justify-content:center;}
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-bottom: 1.75rem;
+    }
 
-footer{background:var(--bg);border-top:0.5px solid var(--border);padding:3rem;text-align:center;position:relative;z-index:1;}
-.footer-name{font-size:16px;color:var(--muted);font-family:'Courier New',monospace;letter-spacing:0.1em;}
-.footer-name span{color:var(--blue);}
+    .btn-primary {
+      display: inline-block;
+      padding: 12px 28px;
+      background: var(--blue);
+      color: #000;
+      text-decoration: none;
+      font-family: 'Courier New', monospace;
+      font-size: 16px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: bold;
+      border-radius: 3px;
+      transition: opacity 0.2s, transform 0.2s;
+    }
 
-@media(max-width:1024px){
-  #hero{padding-left:clamp(1.5rem,8vw,80px);padding-right:clamp(1.5rem,8vw,80px);}
-}
-@media(max-width:768px){
-  nav{padding:1rem 1.5rem;}
-  .nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:rgba(10,10,15,0.98);flex-direction:column;gap:0;border-bottom:0.5px solid var(--border);}
-  .nav-links.open{display:flex;}
-  .nav-links li a{display:block;padding:1rem 1.5rem;border-bottom:0.5px solid var(--border);}
-  .nav-hamburger{display:flex;}
-  #hero{padding-left:6vw;padding-right:6vw;padding-top:70px;}
-  h1.hero-name{font-size:clamp(2rem,10vw,3.5rem);}
-  .hero-desc{font-size:15px;}
-  .about-grid{grid-template-columns:1fr;gap:2.5rem;}
-  .research-grid{grid-template-columns:1fr;}
-  .section-inner{padding:4rem 1.5rem;}
-  .stats-grid{grid-template-columns:1fr 1fr;}
-  .pub-item{grid-template-columns:30px 1fr;gap:1rem;}
-  .hero-actions{gap:0.75rem;}
-  .btn-primary,.btn-ghost{padding:11px 20px;font-size:10px;}
-  .social-links{gap:0.5rem;}
-  .social-link{font-size:10px;padding:6px 10px;}
-}
-</style>
+    .btn-primary:hover {
+      opacity: 0.85;
+      transform: translateY(-1px);
+    }
+
+    .btn-ghost {
+      display: inline-block;
+      padding: 12px 28px;
+      border: 0.5px solid var(--blue-mid);
+      color: var(--blue);
+      text-decoration: none;
+      font-family: 'Courier New', monospace;
+      font-size: 16px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      border-radius: 3px;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .btn-ghost:hover {
+      background: var(--blue-dim);
+      transform: translateY(-1px);
+    }
+
+    .social-links {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .social-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      color: var(--muted);
+      text-decoration: none;
+      font-family: 'Courier New', monospace;
+      font-size: 15px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 7px 13px;
+      border: 0.5px solid var(--border);
+      border-radius: 3px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    .social-link:hover {
+      color: var(--blue);
+      border-color: var(--blue-mid);
+    }
+
+    .hero-scroll {
+      position: absolute;
+      bottom: 2.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      color: var(--muted);
+      font-family: 'Courier New', monospace;
+      font-size: 16px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      animation: bounce 1s infinite;
+    }
+
+    .hero-scroll::after {
+      content: '';
+      width: 1px;
+      height: 40px;
+      background: linear-gradient(to bottom, var(--muted), transparent);
+    }
+
+    @keyframes bounce {
+
+      0%,
+      100% {
+        transform: translateX(-50%) translateY(0);
+      }
+
+      50% {
+        transform: translateX(-50%) translateY(6px);
+      }
+    }
+
+    .section-inner {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 6rem 3rem;
+    }
+
+    .section-label {
+      font-family: 'Courier New', monospace;
+      font-size: 16px;
+      letter-spacing: 0.22em;
+      color: var(--blue);
+      text-transform: uppercase;
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .section-label::before {
+      content: '';
+      display: inline-block;
+      width: 24px;
+      height: 1px;
+      background: var(--blue);
+    }
+
+    h2.section-title {
+      font-size: clamp(1.6rem, 3.5vw, 2.8rem);
+      font-weight: normal;
+      color: #fff;
+      letter-spacing: -0.01em;
+      margin-bottom: 3rem;
+      line-height: 1.2;
+    }
+
+    #about {
+      background: var(--bg2);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .about-text {
+      font-size: 15px;
+      color: #b0b0c8;
+      line-height: 1.9;
+    }
+
+    .about-text p {
+      margin-bottom: 1.2rem;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+
+    .stat-card {
+      padding: 1.5rem;
+      background: var(--bg3);
+      border: 0.5px solid var(--border);
+      border-radius: 4px;
+      border-left: 2px solid var(--blue);
+    }
+
+    .stat-card:hover {
+      border-color: var(--blue-mid);
+      transform: translateY(-3px);
+    }
+
+    .stat-num {
+      font-size: 2.2rem;
+      font-weight: normal;
+      color: var(--blue);
+      font-family: 'Courier New', monospace;
+      line-height: 1;
+      margin-bottom: 0.4rem;
+    }
+
+    .stat-label {
+      font-size: 11px;
+      color: var(--muted);
+      font-family: 'Courier New', monospace;
+      letter-spacing: 0.06em;
+      line-height: 1.4;
+    }
+
+    #research {
+      background: var(--bg);
+    }
+
+    .research-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+
+    .research-card {
+      padding: 2rem;
+      background: var(--bg3);
+      border: 0.5px solid var(--border);
+      border-radius: 4px;
+      transition: border-color 0.25s, transform 0.25s;
+      cursor: default;
+    }
+
+    .research-card:hover {
+      border-color: var(--blue-mid);
+      transform: translateY(-3px);
+    }
+
+    .card-icon {
+      width: 36px;
+      height: 36px;
+      background: var(--blue-dim);
+      border-radius: 3px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.25rem;
+      font-size: 16px;
+      color: var(--blue);
+      font-family: 'Courier New', monospace;
+      font-weight: bold;
+    }
+
+    .card-title {
+      font-size: 16px;
+      color: #fff;
+      margin-bottom: 0.75rem;
+      font-weight: normal;
+    }
+
+    .card-body {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.7;
+      font-family: 'Courier New', monospace;
+    }
+
+    .card-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 1.25rem;
+    }
+
+    .tag {
+      font-family: 'Courier New', monospace;
+      font-size: 10px;
+      letter-spacing: 0.08em;
+      color: var(--blue);
+      background: var(--blue-dim);
+      padding: 3px 9px;
+      border-radius: 2px;
+    }
+
+    #publications {
+      background: var(--bg2);
+    }
+
+    .pub-list {
+      list-style: none;
+    }
+
+    .pub-item {
+      display: grid;
+      grid-template-columns: 40px 1fr;
+      gap: 1.5rem;
+      padding: 1.75rem 0;
+      border-bottom: 0.5px solid var(--border);
+    }
+
+    .pub-item:first-child {
+      border-top: 0.5px solid var(--border);
+    }
+
+    .pub-num {
+      font-family: 'Courier New', monospace;
+      font-size: 11px;
+      color: var(--blue);
+      padding-top: 4px;
+      text-align: right;
+    }
+
+    .pub-title {
+      font-size: 14px;
+      color: #dde;
+      margin-bottom: 0.35rem;
+      line-height: 1.5;
+    }
+
+    .pub-meta {
+      font-size: 11px;
+      color: var(--muted);
+      font-family: 'Courier New', monospace;
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .pub-meta .journal {
+      color: var(--blue);
+    }
+
+    .pub-footer {
+      margin-top: 2.5rem;
+      display: flex;
+      justify-content: center;
+    }
+
+    footer {
+      background: var(--bg);
+      border-top: 0.5px solid var(--border);
+      padding: 3rem;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .footer-name {
+      font-size: 16px;
+      color: var(--muted);
+      font-family: 'Courier New', monospace;
+      letter-spacing: 0.1em;
+    }
+
+    .footer-name span {
+      color: var(--blue);
+    }
+
+    @media(max-width:1024px) {
+      #hero {
+        padding-left: clamp(1.5rem, 8vw, 80px);
+        padding-right: clamp(1.5rem, 8vw, 80px);
+      }
+    }
+
+    @media(max-width:768px) {
+      nav {
+        padding: 1rem 1.5rem;
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: rgba(10, 10, 15, 0.98);
+        flex-direction: column;
+        gap: 0;
+        border-bottom: 0.5px solid var(--border);
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .nav-links li a {
+        display: block;
+        padding: 1rem 1.5rem;
+        border-bottom: 0.5px solid var(--border);
+      }
+
+      .nav-hamburger {
+        display: flex;
+      }
+
+      #hero {
+        padding-left: 6vw;
+        padding-right: 6vw;
+        padding-top: 70px;
+      }
+
+      h1.hero-name {
+        font-size: clamp(2rem, 10vw, 3.5rem);
+      }
+
+      .hero-desc {
+        font-size: 15px;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+
+      .research-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .section-inner {
+        padding: 4rem 1.5rem;
+      }
+
+      .stats-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .pub-item {
+        grid-template-columns: 30px 1fr;
+        gap: 1rem;
+      }
+
+      .hero-actions {
+        gap: 0.75rem;
+      }
+
+      .btn-primary,
+      .btn-ghost {
+        padding: 11px 20px;
+        font-size: 10px;
+      }
+
+      .social-links {
+        gap: 0.5rem;
+      }
+
+      .social-link {
+        font-size: 10px;
+        padding: 6px 10px;
+      }
+    }
+  </style>
 </head>
+
 <body>
 
-<canvas id="particles"></canvas>
+  <canvas id="particles"></canvas>
 
-<nav>
-  <div class="nav-logo">
-    <div class="hero-photo-circle">
-      <img src="assets/profile_pic.png" alt="Davis Thomas Daniel">
+  <nav>
+    <div class="nav-logo">
+      <div class="hero-photo-circle">
+        <img src="assets/profile_pic.png" alt="Davis Thomas Daniel">
+      </div>
+      Davis Thomas Daniel
     </div>
-    Davis Thomas Daniel
-  </div>
-  <ul class="nav-links" id="navLinks">
-    <li><a href="#about" onclick="closeNav()">About</a></li>
-    <li><a href="#research" onclick="closeNav()">Research</a></li>
-    <li><a href="#publications" onclick="closeNav()">Publications</a></li>
-    <li><a href="mailto:davisthomasdaniel@gmail.com" onclick="closeNav()">Contact</a></li>
-  </ul>
-  <div class="nav-hamburger" id="hamburger" onclick="toggleNav()" aria-label="Toggle menu">
-    <span></span><span></span><span></span>
-  </div>
-</nav>
-
-<section id="hero">
-  <div class="hero-tag">Computational Chemist · Material Scientist· Doctorate in Chemistry</div>
-  <h1 class="hero-name">Davis Thomas <em>Daniel</em></h1>
-  <p class="hero-desc">Bridging molecular modelling, machine learning, and analytical spectroscopy to understand, design and optimise materials.</p>
-  <div class="hero-actions">
-    <a href="mailto:davisthomasdaniel@gmail.com" class="btn-primary">Get in touch</a>
-    <a href="#research" class="btn-ghost">Explore research</a>
-  </div>
-  <div class="social-links">
-    <a href="https://www.linkedin.com/in/davisthomasdaniel/" class="social-link">↗ LinkedIn</a>
-    <a href="https://github.com/davistdaniel" class="social-link">↗ GitHub</a>
-    <a href="https://orcid.org/0000-0001-7035-3416" class="social-link">↗ ORCID</a>
-    <a href="https://scholar.google.com/citations?user=uwW6DEAAAAAJ&hl=en" class="social-link">↗ Scholar</a>
-  </div>
-  <div class="hero-scroll">Scroll</div>
-</section>
-
-<section id="about">
-  <div class="section-inner">
-    <div class="section-label">About</div>
-    <h2 class="section-title">Scientist. Developer. Innovator.</h2>
-    <div class="about-grid">
-      <div class="about-text">
-        <p>Computational chemist and material scientist with skills spanning molecular modelling, software development, electrochemistry and magnetic resonance spectroscopy. </p>
-        <p>My work sits at the intersection of atomistic simulation, machine learning, and in operando EPR/NMR spectroscopy, combining computational methods with experimental techniques for advancing materials research.</p>
-        <p>I have also developed several open-source scientific software tools including ILTpy and EPRpy, and believe good research software engineering practices are crucial for reproducible research workflows.</p>
-      </div>
-      <div class="stats-grid">
-        <div class="stat-card">
-          <div class="stat-num">5+</div>
-          <div class="stat-label">Years of research experience</div>
-        </div>
-
-        <a href="#publications" class="stat-card-link" style="text-decoration: none; color: inherit;">
-          <div class="stat-card">
-            <div class="stat-num">10+</div>
-            <div class="stat-label">Peer-reviewed publications</div>
-          </div>
-        </a>
-
-        <a href="https://github.com/davistdaniel/" class="stat-card-link" style="text-decoration: none; color: inherit;">
-        <div class="stat-card">
-          <div class="stat-num">4+</div>
-          <div class="stat-label">
-            Open-source software packages and tools: ILTpy, EPRpy and more.
-          </div>
-        </div>
-
-        <a href="https://apps.fz-juelich.de/iltpy" class="stat-card-link" style="text-decoration: none; color: inherit;">
-          <div class="stat-card">
-            <div class="stat-num">ILTpy</div>
-            <div class="stat-label">
-              Inverse Laplace transform in python. Click to know more.
-            </div>
-          </div>
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="research">
-  <div class="section-inner">
-    <div class="section-label">Research Focus</div>
-    <h2 class="section-title">Expertise.</h2>
-    <div class="research-grid">
-      <div class="research-card">
-        <div class="card-icon">∇²</div>
-        <div class="card-title">Computational Modelling</div>
-        <div class="card-body">Experience with DFT, ab initio molecular dynamics, nudged elastic band calculations, and classical MD applied to energy materials, polymers, and electrolytes on HPC systems.</div>
-        <div class="card-tags"><span class="tag">DFT</span><span class="tag">AIMD</span><span class="tag">ORCA</span><span class="tag">HPC</span><span class="tag">ASE</span></div>
-      </div>
-      <div class="research-card">
-        <div class="card-icon">ML</div>
-        <div class="card-title">Machine Learning for Materials</div>
-        <div class="card-body">Experience with molecular representation learning and design of active-learning workflows integrating ML models with atomistic simulations and experimental data to accelerate materials discovery. </div>
-        <div class="card-tags"><span class="tag">scikit-learn</span><span class="tag">GRU</span><span class="tag">MLIPs</span><span class="tag">PyTorch</span><span class="tag">Deep Learning</span></div>
-      </div>
-      <div class="research-card">
-        <div class="card-icon">↯</div>
-        <div class="card-title">EPR & NMR Spectroscopy</div>
-        <div class="card-body">In operando EPR and NMR to track real-time redox states, lithium solvation, and degradation mechanisms in organic radical batteries and solid electrolytes.</div>
-        <div class="card-tags"><span class="tag">EPR spectroscopy</span><span class="tag">NMR spectroscopy</span><span class="tag">In Operando electrochemistry</span></div>
-      </div>
-      <div class="research-card">
-        <div class="card-icon">&lt;/&gt;</div>
-        <div class="card-title">Scientific Software</div>
-        <div class="card-body">Lead developer of ILTpy (regularised multi-dimensional inverse Laplace transform) and EPRpy (Bruker EPR data processing). </div>
-        <div class="card-tags"><span class="tag">Python</span><span class="tag">Algorithm development</span><span class="tag">ILTpy</span><span class="tag">EPRpy</span><span class="tag">Numerical methods</span></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="publications">
-  <div class="section-inner">
-    <div class="section-label">Publications</div>
-    <h2 class="section-title">Selected work.</h2>
-    <ul class="pub-list">
-      <li class="pub-item"><span class="pub-num">01</span><div><div class="pub-title">Machine learning isotropic g values of radical polymers</div><div class="pub-meta"><span class="journal">J. Chem. Theory Comput.</span><span>2024</span><span>20(6), 2592–2604</span></div></div></li>
-      <li class="pub-item"><span class="pub-num">02</span><div><div class="pub-title">Multimodal investigation of electronic transport in PTMA and its impact on organic radical battery performance</div><div class="pub-meta"><span class="journal">Scientific Reports</span><span>2023</span><span>13(1), 10934</span></div></div></li>
-      <li class="pub-item"><span class="pub-num">03</span><div><div class="pub-title">Laplace inverted pulsed EPR relaxation to study contact between active material and carbon black in Li–organic battery cathodes</div><div class="pub-meta"><span class="journal">Phys. Chem. Chem. Phys.</span><span>2023</span><span>25(18), 12767–12776</span></div></div></li>
-      <li class="pub-item"><span class="pub-num">04</span><div><div class="pub-title">Electrolyte composition dependent Li-ion binding and degradation of organic radical battery material</div><div class="pub-meta"><span class="journal">Energy Advances</span><span>2025</span><span>4(3), 392–399</span></div></div></li>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about" onclick="closeNav()">About</a></li>
+      <li><a href="#research" onclick="closeNav()">Research</a></li>
+      <li><a href="#publications" onclick="closeNav()">Publications</a></li>
+      <li><a href="mailto:davisthomasdaniel@gmail.com" onclick="closeNav()">Contact</a></li>
     </ul>
-    <div class="pub-footer"><a href="https://scholar.google.com/citations?user=uwW6DEAAAAAJ&hl=en" class="btn-ghost">View all publications →</a></div>
-  </div>
-</section>
+    <div class="nav-hamburger" id="hamburger" onclick="toggleNav()" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
 
-<footer>
-  <div class="footer-name"><span>© 2026 Davis Thomas Daniel</span></div>
-</footer>
+  <section id="hero">
+    <div class="hero-tag">Computational Chemist · Material Scientist· Doctorate in Chemistry</div>
+    <h1 class="hero-name">Davis Thomas <em>Daniel</em></h1>
+    <p class="hero-desc">Bridging molecular modelling, machine learning, and analytical spectroscopy to understand,
+      design and optimise materials.</p>
+    <div class="hero-actions">
+      <a href="mailto:davisthomasdaniel@gmail.com" class="btn-primary">Get in touch</a>
+      <a href="#research" class="btn-ghost">Explore research</a>
+    </div>
+    <div class="social-links">
+      <a href="https://www.linkedin.com/in/davisthomasdaniel/" class="social-link">↗ LinkedIn</a>
+      <a href="https://github.com/davistdaniel" class="social-link">↗ GitHub</a>
+      <a href="https://orcid.org/0000-0001-7035-3416" class="social-link">↗ ORCID</a>
+      <a href="https://scholar.google.com/citations?user=uwW6DEAAAAAJ&hl=en" class="social-link">↗ Scholar</a>
+    </div>
+    <div class="hero-scroll">Scroll</div>
+  </section>
 
-<script>
-function toggleNav(){document.getElementById('navLinks').classList.toggle('open');}
-function closeNav(){document.getElementById('navLinks').classList.remove('open');}
+  <section id="about">
+    <div class="section-inner">
+      <div class="section-label">About</div>
+      <h2 class="section-title">Scientist. Developer. Innovator.</h2>
+      <div class="about-grid">
+        <div class="about-text">
+          <p>Computational chemist and material scientist with skills spanning molecular modelling, software
+            development, electrochemistry and magnetic resonance spectroscopy. </p>
+          <p>My work sits at the intersection of atomistic simulation, machine learning, and in operando EPR/NMR
+            spectroscopy, combining computational methods with experimental techniques for advancing materials research.
+          </p>
+          <p>I have also developed several open-source scientific software tools including ILTpy and EPRpy, and believe
+            good research software engineering practices are crucial for reproducible research workflows.</p>
+        </div>
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-num">5+</div>
+            <div class="stat-label">Years of research experience</div>
+          </div>
 
-const canvas=document.getElementById('particles');
-const ctx=canvas.getContext('2d');
-let W,H,pts;
-const BASE_R=2.5;
-const MOUSE_RADIUS=130;
-const isDesktop=window.innerWidth>=1024;
-let mouse={x:-999,y:-999};
+          <a href="#publications" class="stat-card-link" style="text-decoration: none; color: inherit;">
+            <div class="stat-card">
+              <div class="stat-num">10+</div>
+              <div class="stat-label">Peer-reviewed publications</div>
+            </div>
+          </a>
 
-function init(){
-  const area=W*H;
-  const ambient=Math.round(Math.min(Math.max(area/18000,20),55));
-  const followers=isDesktop?12:0;
-  pts=Array.from({length:ambient},()=>({
-    x:Math.random()*W,y:Math.random()*H,
-    vx:(Math.random()-0.5)*0.35,vy:(Math.random()-0.5)*0.35,
-    r:Math.random()*2+BASE_R,
-    mouse:false
-  }));
-  for(let i=0;i<followers;i++){
-    pts.push({x:W/2,y:H/2,vx:0,vy:0,r:BASE_R+1,mouse:true});
-  }
-}
+          <a href="https://github.com/davistdaniel/" class="stat-card-link"
+            style="text-decoration: none; color: inherit;">
+            <div class="stat-card">
+              <div class="stat-num">4+</div>
+              <div class="stat-label">
+                Open-source software packages and tools: ILTpy, EPRpy and more.
+              </div>
+            </div>
+          </a>
 
-function resize(){
-  W=canvas.width=window.innerWidth;
-  H=canvas.height=window.innerHeight;
-  init();
-}
+          <a href="https://apps.fz-juelich.de/iltpy" class="stat-card-link"
+            style="text-decoration: none; color: inherit;">
+            <div class="stat-card">
+              <div class="stat-num">ILTpy</div>
+              <div class="stat-label">
+                Inverse Laplace transform in python. Click to know more.
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
 
-let lastW=window.innerWidth;
-window.addEventListener('resize',()=>{
-  if(window.innerWidth!==lastW){
-    lastW=window.innerWidth;
+  <section id="research">
+    <div class="section-inner">
+      <div class="section-label">Research Focus</div>
+      <h2 class="section-title">Expertise.</h2>
+      <div class="research-grid">
+        <div class="research-card">
+          <div class="card-icon">∇²</div>
+          <div class="card-title">Computational Modelling</div>
+          <div class="card-body">Experience with DFT, ab initio molecular dynamics, nudged elastic band calculations,
+            and classical MD applied to energy materials, polymers, and electrolytes on HPC systems.</div>
+          <div class="card-tags"><span class="tag">DFT</span><span class="tag">AIMD</span><span
+              class="tag">ORCA</span><span class="tag">HPC</span><span class="tag">ASE</span></div>
+        </div>
+        <div class="research-card">
+          <div class="card-icon">ML</div>
+          <div class="card-title">Machine Learning for Materials</div>
+          <div class="card-body">Experience with molecular representation learning and design of active-learning
+            workflows integrating ML models with atomistic simulations and experimental data to accelerate materials
+            discovery. </div>
+          <div class="card-tags"><span class="tag">scikit-learn</span><span class="tag">GRU</span><span
+              class="tag">MLIPs</span><span class="tag">PyTorch</span><span class="tag">Deep Learning</span></div>
+        </div>
+        <div class="research-card">
+          <div class="card-icon">↯</div>
+          <div class="card-title">EPR & NMR Spectroscopy</div>
+          <div class="card-body">In operando EPR and NMR to track real-time redox states, lithium solvation, and
+            degradation mechanisms in organic radical batteries and solid electrolytes.</div>
+          <div class="card-tags"><span class="tag">EPR spectroscopy</span><span class="tag">NMR spectroscopy</span><span
+              class="tag">In Operando electrochemistry</span></div>
+        </div>
+        <div class="research-card">
+          <div class="card-icon">&lt;/&gt;</div>
+          <div class="card-title">Scientific Software</div>
+          <div class="card-body">Lead developer of ILTpy (regularised multi-dimensional inverse Laplace transform) and
+            EPRpy (Bruker EPR data processing). </div>
+          <div class="card-tags"><span class="tag">Python</span><span class="tag">Algorithm development</span><span
+              class="tag">ILTpy</span><span class="tag">EPRpy</span><span class="tag">Numerical methods</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="publications">
+    <div class="section-inner">
+      <div class="section-label">Publications</div>
+      <h2 class="section-title">Selected work.</h2>
+      <ul class="pub-list">
+        <li class="pub-item"><span class="pub-num">01</span>
+          <div>
+            <div class="pub-title">Machine learning isotropic g values of radical polymers</div>
+            <div class="pub-meta"><span class="journal">J. Chem. Theory Comput.</span><span>2024</span><span>20(6),
+                2592–2604</span></div>
+          </div>
+        </li>
+        <li class="pub-item"><span class="pub-num">02</span>
+          <div>
+            <div class="pub-title">Multimodal investigation of electronic transport in PTMA and its impact on organic
+              radical battery performance</div>
+            <div class="pub-meta"><span class="journal">Scientific Reports</span><span>2023</span><span>13(1),
+                10934</span></div>
+          </div>
+        </li>
+        <li class="pub-item"><span class="pub-num">03</span>
+          <div>
+            <div class="pub-title">Laplace inverted pulsed EPR relaxation to study contact between active material and
+              carbon black in Li–organic battery cathodes</div>
+            <div class="pub-meta"><span class="journal">Phys. Chem. Chem. Phys.</span><span>2023</span><span>25(18),
+                12767–12776</span></div>
+          </div>
+        </li>
+        <li class="pub-item"><span class="pub-num">04</span>
+          <div>
+            <div class="pub-title">Electrolyte composition dependent Li-ion binding and degradation of organic radical
+              battery material</div>
+            <div class="pub-meta"><span class="journal">Energy Advances</span><span>2025</span><span>4(3),
+                392–399</span></div>
+          </div>
+        </li>
+      </ul>
+      <div class="pub-footer"><a href="https://scholar.google.com/citations?user=uwW6DEAAAAAJ&hl=en"
+          class="btn-ghost">View all publications →</a></div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-name"><span>© 2026 Davis Thomas Daniel</span></div>
+  </footer>
+
+  <script>
+    function toggleNav() { document.getElementById('navLinks').classList.toggle('open'); }
+    function closeNav() { document.getElementById('navLinks').classList.remove('open'); }
+
+    const canvas = document.getElementById('particles');
+    const ctx = canvas.getContext('2d');
+    let W, H, pts;
+    const BASE_R = 2.5;
+    const MOUSE_RADIUS = 130;
+    const isDesktop = window.innerWidth >= 1024;
+    let mouse = { x: -999, y: -999 };
+
+    function init() {
+      const area = W * H;
+      const ambient = Math.round(Math.min(Math.max(area / 18000, 20), 55));
+      const followers = isDesktop ? 12 : 0;
+      pts = Array.from({ length: ambient }, () => ({
+        x: Math.random() * W, y: Math.random() * H,
+        vx: (Math.random() - 0.5) * 0.35, vy: (Math.random() - 0.5) * 0.35,
+        r: Math.random() * 2 + BASE_R,
+        mouse: false
+      }));
+      for (let i = 0; i < followers; i++) {
+        pts.push({ x: W / 2, y: H / 2, vx: 0, vy: 0, r: BASE_R + 1, mouse: true });
+      }
+    }
+
+    function resize() {
+      W = canvas.width = window.innerWidth;
+      H = canvas.height = window.innerHeight;
+      init();
+    }
+
+    let lastW = window.innerWidth;
+    window.addEventListener('resize', () => {
+      if (window.innerWidth !== lastW) {
+        lastW = window.innerWidth;
+        resize();
+      }
+    });
+
+    if (isDesktop) {
+      window.addEventListener('mousemove', e => {
+        mouse.x = e.clientX;
+        mouse.y = e.clientY;
+      });
+    }
+
+    let last = 0;
+    function loop(ts) {
+      const dt = Math.min((ts - last) / 16.67, 3);
+      last = ts;
+      ctx.clearRect(0, 0, W, H);
+      for (let i = 0; i < pts.length; i++) {
+        const p = pts[i];
+        if (p.mouse) {
+          const dx = mouse.x - p.x, dy = mouse.y - p.y;
+          p.vx += dx * 0.08 * dt; p.vy += dy * 0.08 * dt;
+          p.vx *= Math.pow(0.78, dt); p.vy *= Math.pow(0.78, dt);
+          p.x += p.vx * dt; p.y += p.vy * dt;
+        } else {
+          const dx = mouse.x - p.x, dy = mouse.y - p.y;
+          const d = Math.sqrt(dx * dx + dy * dy);
+          if (isDesktop && d < MOUSE_RADIUS) {
+            const f = (1 - d / MOUSE_RADIUS) * 0.015;
+            p.vx += dx * f * dt; p.vy += dy * f * dt;
+          }
+          p.x += p.vx * dt; p.y += p.vy * dt;
+          if (p.x < 0 || p.x > W) p.vx *= -1;
+          if (p.y < 0 || p.y > H) p.vy *= -1;
+          const spd = Math.sqrt(p.vx * p.vx + p.vy * p.vy);
+          if (spd > 1.2) { p.vx *= 0.97; p.vy *= 0.97; }
+        }
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fillStyle = p.mouse ? 'rgba(68,170,255,0.55)' : 'rgba(68,170,255,0.3)';
+        ctx.fill();
+      }
+      for (let i = 0; i < pts.length; i++) {
+        for (let j = i + 1; j < pts.length; j++) {
+          const dx = pts[i].x - pts[j].x, dy = pts[i].y - pts[j].y;
+          const d = Math.sqrt(dx * dx + dy * dy);
+          const thresh = (pts[i].mouse || pts[j].mouse) ? 160 : 110;
+          if (d < thresh) {
+            ctx.beginPath(); ctx.moveTo(pts[i].x, pts[i].y); ctx.lineTo(pts[j].x, pts[j].y);
+            const alpha = (pts[i].mouse || pts[j].mouse) ? 0.18 : 0.07;
+            ctx.strokeStyle = `rgba(68,170,255,${alpha * (1 - d / thresh)})`;
+            ctx.lineWidth = 0.6; ctx.stroke();
+          }
+        }
+      }
+      requestAnimationFrame(loop);
+    }
+
     resize();
-  }
-});
-
-if(isDesktop){
-  window.addEventListener('mousemove',e=>{
-    mouse.x=e.clientX;
-    mouse.y=e.clientY;
-  });
-}
-
-let last=0;
-function loop(ts){
-  const dt=Math.min((ts-last)/16.67,3);
-  last=ts;
-  ctx.clearRect(0,0,W,H);
-  for(let i=0;i<pts.length;i++){
-    const p=pts[i];
-    if(p.mouse){
-      const dx=mouse.x-p.x,dy=mouse.y-p.y;
-      p.vx+=dx*0.08*dt;p.vy+=dy*0.08*dt;
-      p.vx*=Math.pow(0.78,dt);p.vy*=Math.pow(0.78,dt);
-      p.x+=p.vx*dt;p.y+=p.vy*dt;
-    } else {
-      const dx=mouse.x-p.x,dy=mouse.y-p.y;
-      const d=Math.sqrt(dx*dx+dy*dy);
-      if(isDesktop&&d<MOUSE_RADIUS){
-        const f=(1-d/MOUSE_RADIUS)*0.015;
-        p.vx+=dx*f*dt;p.vy+=dy*f*dt;
-      }
-      p.x+=p.vx*dt;p.y+=p.vy*dt;
-      if(p.x<0||p.x>W)p.vx*=-1;
-      if(p.y<0||p.y>H)p.vy*=-1;
-      const spd=Math.sqrt(p.vx*p.vx+p.vy*p.vy);
-      if(spd>1.2){p.vx*=0.97;p.vy*=0.97;}
-    }
-    ctx.beginPath();
-    ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
-    ctx.fillStyle=p.mouse?'rgba(68,170,255,0.55)':'rgba(68,170,255,0.3)';
-    ctx.fill();
-  }
-  for(let i=0;i<pts.length;i++){
-    for(let j=i+1;j<pts.length;j++){
-      const dx=pts[i].x-pts[j].x,dy=pts[i].y-pts[j].y;
-      const d=Math.sqrt(dx*dx+dy*dy);
-      const thresh=(pts[i].mouse||pts[j].mouse)?160:110;
-      if(d<thresh){
-        ctx.beginPath();ctx.moveTo(pts[i].x,pts[i].y);ctx.lineTo(pts[j].x,pts[j].y);
-        const alpha=(pts[i].mouse||pts[j].mouse)?0.18:0.07;
-        ctx.strokeStyle=`rgba(68,170,255,${alpha*(1-d/thresh)})`;
-        ctx.lineWidth=0.6;ctx.stroke();
-      }
-    }
-  }
-  requestAnimationFrame(loop);
-}
-
-resize();
-requestAnimationFrame(loop);
-</script>
+    requestAnimationFrame(loop);
+  </script>
 </body>
+
 </html>
